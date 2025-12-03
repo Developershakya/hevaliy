@@ -1,20 +1,24 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, X, Heart, Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
+import {  Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Hearder';
 
 export default function LoginSignup() {
     const [showPassword, setShowPassword] = useState(false);
 
 
     return (
+        <>  
+        <Navbar />  
         <div className="min-h-screen bg-white">
 
 
             {/* Main Content */}
-            <div className="pt-24 pb-20 bg-gradient-to-br from-purple-50 to-white min-h-screen">
+            <div className="pt-24 pb-20 bg-linear-to-br from-purple-50 to-white min-h-screen">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         {/* Left Side - Form */}
@@ -138,9 +142,11 @@ export default function LoginSignup() {
                         {/* Right Side - Image */}
                         <div className="hidden md:block">
                             <Image
-                                src={""}
-                                alt="Auth"
-                                className="rounded-2xl shadow-2xl object-cover h-full"
+                                src="/images/Rectangle 41998.png"
+                                alt="Heartivy Logo"
+                                width={600}
+                                height={400}
+                                className="object-contain"
                             />
                         </div>
                     </div>
@@ -148,11 +154,8 @@ export default function LoginSignup() {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">© 2025 Heartivy. All rights reserved.</p>
-                </div>
-            </footer>
+            <Footer />
         </div>
+        </>
     );
 }
