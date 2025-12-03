@@ -1,6 +1,6 @@
 // components/CommunityPage.jsx (Revised for design accuracy)
 'use client';
-import Header from '@/components/Hearder';
+import Header from '@/components/ui/NavBar';
 import Footer from '@/components/Footer';
 import { Heart, Brain, Leaf, Users, Sun, Mountain, Sparkles, Shield, Lock, User, Smile, Star, MessageCircle } from "lucide-react";
 

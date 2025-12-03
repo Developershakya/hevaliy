@@ -1,4 +1,4 @@
-import Navbar from '../../components/Hearder'; // Make sure this path matches your file name (e.g., Header.jsx)
+import Navbar from '../../components/ui/NavBar'; // Make sure this path matches your file name (e.g., Header.jsx)
 import Footer from '../../components/Footer'; // Make sure this path matches your file name (e.g., Footer.jsx)
 import { HeartPulse } from 'lucide-react'; // FIXED: Changed HeartActivity to HeartPulse
 

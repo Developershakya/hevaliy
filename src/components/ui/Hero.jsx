@@ -1,0 +1,78 @@
+import Image from "next/image";
+import heroBg from "../../../public/images/john-towner-3Kv48NS4WUU-unsplash 1.png";
+import rightImg from "../../../public/images/hero-right-img.png";
+import { Cog } from "lucide-react";
+
+export default function Hero() {
+  return (
+    <section className="relative w-full h-[90vh] rounded-3xl overflow-hidden">
+      {/* Background Image */}
+      <Image src={heroBg} alt="hero" fill className="object-cover " />
+
+      {/* Main Center Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+        <h1
+          className="
+          text-5xl md:text-6xl font-[Playfair] font-bold 
+          text-[#F5D099]
+          drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]
+        "
+        >
+          Every Heart Deserves <br /> Care and Understanding
+        </h1>
+
+        <p className="text-gray-200 mt-3 max-w-xl text-sm md:text-base leading-relaxed">
+          Find a safe, judgment-free space to share, heal, and rediscover
+          yourself.
+        </p>
+      </div>
+
+      {/* Bottom Left Card */}
+      <div
+        className="
+        absolute bottom-10 left-24   text-white max-w-xs
+        
+        
+      "
+      >
+                <div className="flex  md:justify-start items-center gap-2 mb-2">
+                  <Cog className="w-4 h-4 md:w-6 md:h-6" />
+                  <h3 className="text-sm md:text-xl  font-semibold">Strength in Stillness</h3>
+                </div>
+
+                <p className="text-xs md:text-sm text-[#D5B485] leading-relaxed">
+                  Mental well-being shapes how we think, feel, and connect with others.
+                  When you take time to care for your mind, you nurture your confidence,
+                  balance, and resilience — one gentle moment at a time.
+                </p>
+      </div>
+
+      {/* Bottom Right Circular Card */}
+      <div className="absolute bottom-10 right-24 text-[#D5B485] flex items-center gap-[10px">
+        {/* Text on the LEFT side */}
+        <div className="flex flex-col text-right leading-tight">
+          <span className="text-sm opacity-90">Growth</span>
+          <span className="text-sm opacity-90">Balance</span>
+          <span className="text-sm opacity-90">Awareness</span>
+          <span className="text-sm opacity-90">Expression</span>
+        </div>
+
+        {/* Circle Image */}
+        <div
+          className="
+      w-[120px] h-[120px] rounded-full overflow-hidden 
+      border-2 border-white shadow-[0_4px_20px_rgba(0,0,0,0.5)]
+    "
+        >
+          <Image
+            src={rightImg}
+            alt="growth"
+            width={120}
+            height={120}
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}

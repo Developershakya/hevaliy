@@ -28,9 +28,9 @@ export default function Footer() {
             <h4 className="font-bold text-gray-900 mb-4">Support</h4>
             <ul className="space-y-3 text-sm text-gray-500">
               <li><Link href="#">Crisis Helpline</Link></li>
-              <li><Link href="#">Chat Support</Link></li>
+              <li><Link href="/chat">Chat Support</Link></li>
               <li><Link href="#">Find a Therapist</Link></li>
-              <li><Link href="#">Community</Link></li>
+              <li><Link href="/marketing/community">Community</Link></li>
             </ul>
           </div>
 
@@ -49,10 +49,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><Link href="#">About</Link></li>
+              <li><Link href="/marketing/about">About</Link></li>
               <li><Link href="#">Our Mission</Link></li>
               <li><Link href="#">Team</Link></li>
-              <li><Link href="#">Contact</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
         </div>

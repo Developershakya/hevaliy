@@ -1,4 +1,4 @@
-import Navbar from '../../components/Hearder'; // Assuming you named it Navbar.jsx
+import Navbar from '../../components/ui/NavBar'; // Assuming you named it Navbar.jsx
 import Footer from '../../components/Footer'; // Assuming you named it Footer.jsx
 import { Shield, User, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
