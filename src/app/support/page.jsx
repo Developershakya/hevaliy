@@ -11,7 +11,7 @@ function FeatureCard({ icon: Icon, title, description }) {
     <div className="flex flex-col items-center text-center p-4">
       {/* Icon Placeholder Circle */}
       <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 text-gray-500">
-        <Icon size={32} />
+        {/* <Icon size={32} /> */}
       </div>
       <h4 className="font-semibold text-sm mb-1">{title}</h4>
       <p className="text-xs text-gray-500 max-w-xs">{description}</p>
@@ -34,8 +34,9 @@ function HelpCentreNav() {
         // Sticky class added for proper sidebar behavior
         <div className="w-64 shrink-0 pt-8 border-r border-gray-100 pr-8 sticky top-0 self-start"> 
             <h3 className="font-bold text-sm uppercase text-gray-800 mb-4 tracking-wider">Help Centre</h3>
+            <p className="text-sm text-gray-600 mb-6">Find answers and get support</p>
             
-            <ul className="space-y-4">
+            <ul className="space-y-9">
                 {navItems.map((section, index) => (
                     <li key={index}>
                         <div className="flex items-center justify-between text-sm text-black font-semibold mb-2 cursor-pointer">
@@ -43,13 +44,13 @@ function HelpCentreNav() {
                             <ChevronRight size={16} className="text-gray-400" />
                         </div>
                         {/* Sub-links */}
-                        <ul className='space-y-1'>
+                        {/* <ul className='space-y-1'>
                             {section.links.map((link, linkIndex) => (
                                 <Link key={linkIndex} href={`#${link.toLowerCase().replace(/\s/g, '-')}`} className="block text-sm text-gray-600 hover:text-purple-600 py-1 pl-2">
                                     {link}
                                 </Link>
                             ))}
-                        </ul>
+                        </ul> */}
                     </li>
                 ))}
             </ul>
@@ -60,16 +61,16 @@ function HelpCentreNav() {
 // --- Main Page Component (Wrapping the content) ---
 export default function SupportPage() {
   return (
-    <div className="bg-white min-h-screen font-sans text-gray-800 flex flex-col my-6">
+    <div className="bg-white min-h-screen font-sans text-gray-800 flex flex-col ">
       
       {/* 1. Import Header/Navbar */}
       <Navbar /> 
 
       <main className="grow">
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-6 py-12 ">
             
             {/* --- 1. Top Heading Section --- */}
-            <div className="text-center mb-16 max-w-3xl mx-auto">
+            <div className="text-center mb-62 mt-62 max-w-3xl mx-auto">
                 <h1 className="text-4xl font-bold mb-4">
                     Help Centre
                 </h1>
@@ -79,11 +80,11 @@ export default function SupportPage() {
             </div>
 
             {/* --- 2. Feature Cards --- */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-52 max-w-5xl mx-auto">
                 <FeatureCard 
                     icon={Shield} 
-                    title="Privacy & Security" 
-                    description="Your privacy is non-negotiable. Learn about our data security, compliance, and anonymous communication options."
+                    title="" 
+                    description=""
                 />
                 <FeatureCard 
                     icon={User} 
@@ -98,7 +99,7 @@ export default function SupportPage() {
             </div>
 
             {/* --- 3. Main Content Columns (Sidebar + Guide) --- */}
-            <div className="flex flex-col lg:flex-row ">
+            <div className="flex flex-col lg:flex-row mb-32">
                 
                 {/* Left Sidebar (Desktop Only) */}
                 <div className="hidden lg:block">
@@ -106,10 +107,10 @@ export default function SupportPage() {
                 </div>
 
                 {/* Right Content - Guide */}
-                <div className="grow pt-8 max-w-5xl  bg-gray-100 p-8">
+                <div className="grow pt-8 max-w-5xl  bg-gray-100 p-8 border border-gray-200 border-l-3 border-t-0 border-b-0 border-r-0">
                     <h2 className="text-2xl font-bold mb-6 text-gray-900 border-b border-gray-100 pb-3">Getting Started</h2>
                     
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6 bg-blue-100 p-4 rounded-lg">
+                    <p className="text-sm text-gray-600 leading-relaxed mb-6 bg-[#F3F8FD] border-blue-200 border p-4 rounded-lg">
                         Welcome to Heartivy! We are really glad you are here. This guide will help you understand the platform and make the most of the emotional support tools we have built for you.
                     </p>
 
