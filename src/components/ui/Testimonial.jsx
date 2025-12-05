@@ -81,11 +81,9 @@ export default function TestimonialSection() {
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section
-      className="w-full py-24 px-8 md:px-16 bg-white
-            bg-[url('/images/Topographic 5.png')] bg-cover bg-center
-"
-    >
+    <section className="w-full py-24 px-8 md:px-16 bg-white
+            bg-[url('/images/pattern-bg.png')] bg-cover bg-center
+">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* LEFT STATIC SECTION  */}
         <div className="flex flex-col justify-center pl-18">
