@@ -3,7 +3,7 @@
 import Header from '@/components/ui/NavBar';
 import Footer from '@/components/Footer';
 import { Heart, Brain, Leaf, Users, Sun, Mountain, Sparkles, Shield, Lock, User, Smile, Star, MessageCircle } from "lucide-react";
-
+import SubscribeSection from '@/components/ui/Subscription';
 // Dummy content for the cards and sections
 const communityCards = [
   {
@@ -320,42 +320,7 @@ const CommunityPage = () => {
             </button>
           </div>
         </section>
-
-        {/* Subscribe / Call to Action Section */}
-        {/* 🎨 REVISED: Soft background and gentle styling */}
-        <section className="px-4 md:px-10 max-w-4xl mx-auto mb-24">
-          <div className="p-6 sm:p-10 md:p-16 bg-[#f0f0f0] rounded-3xl text-center shadow-lg">
-
-            {/* Title */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-800 leading-tight">
-              Subscribe to Find Calm, Hope, and Gentle Guidance from Heartivy
-            </h2>
-
-            {/* Description */}
-            <p className="text-gray-600 mb-8 max-w-md mx-auto text-sm sm:text-base">
-              Get weekly insights, community updates, and therapist-approved tools directly to your inbox. Join over 20,000 members.
-            </p>
-
-            {/* Form */}
-            <form className="flex flex-col sm:flex-row items-center justify-center sm:space-x-3 space-y-3 sm:space-y-0 md:bg-white bg-transparent rounded-full md:shadow-md max-w-md mx-auto p-2">
-
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="py-3 px-5 w-full sm:flex-1 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-
-              <button
-                type="submit"
-                className="bg-gray-700 text-white font-medium py-3 px-8 rounded-full w-full sm:w-auto hover:bg-gray-900 transition"
-              >
-                Subscribe
-              </button>
-
-            </form>
-          </div>
-        </section>
-
+        <SubscribeSection />
 
       </main>
 

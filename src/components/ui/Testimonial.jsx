@@ -75,13 +75,13 @@ export default function TestimonialSection() {
   };
 
   return (
-    <section className="w-full py-24 px-8 md:px-20 mb-24 bg-white">
+    <section className="w-full py-24 px-8 md:px-16  bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         
         {/* LEFT STATIC SECTION  */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center pl-18">
           <h2
-            className={`${nunito.className} text-[32px] md:text-6xl font-extrabold text-[#2C7A59] leading-tight`}
+            className={`${nunito.className} text-[32px] md:text-[51px] font-extrabold text-[#2C7A59] leading-tight`}
           >
             What Are People <span className="text-gray-700">Saying About Us</span>
           </h2>
@@ -128,7 +128,7 @@ export default function TestimonialSection() {
               
               {/* BIG CARD */}
               <div
-                className="p-6 rounded-2xl relative shadow-sm w-full h-full flex flex-col justify-between"
+                className="p-6 rounded-2xl relative shadow-sm w-full h-full flex flex-col justify-between border border-gray-300"
                 style={{ backgroundColor: "#C3C3C34D" }}
               >
                 <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
@@ -153,7 +153,7 @@ export default function TestimonialSection() {
               <div className="flex flex-col gap-5 w-full">
 
                 {/* SMALL CARD 1 */}
-                <div className="p-6 rounded-2xl relative shadow-sm w-full" style={{ backgroundColor: "#C3C3C34D" }}>
+                <div className="p-6 rounded-2xl relative shadow-sm w-full border border-gray-300" style={{ backgroundColor: "#C3C3C34D" }}>
                   <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
                     <MoreHorizontal size={24} strokeWidth={2.5} />
                   </button>
@@ -173,7 +173,7 @@ export default function TestimonialSection() {
                 </div>
 
                 {/* SMALL CARD 2 */}
-                <div className="p-6 rounded-2xl relative shadow-sm w-full" style={{ backgroundColor: "#C3C3C34D" }}>
+                <div className="p-6 rounded-2xl relative shadow-sm w-full border border-gray-300" style={{ backgroundColor: "#C3C3C34D" }}>
                   <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
                     <MoreHorizontal size={24} strokeWidth={2.5} />
                   </button>

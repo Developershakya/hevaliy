@@ -43,7 +43,7 @@ export default function HealingSection() {
           <Image
             src={img2}
             alt="img2"
-            width={475}
+            width={450}
             height={368}
             className="object-cover w-full h-full"
           />
@@ -58,11 +58,10 @@ export default function HealingSection() {
             font-semibold flex items-start
           `}
         >
-          <p className="text-[20px]  pt-10">
-            Every sunrise feels like a quiet victory — proof that even after the
-            darkest nights, light always returns. Heartivy is where healing
-            grows slowly, where strength is found in softness, and where hope
-            learns to breathe again.
+          <p className="text-[24px]  pt-10 font-semibold">
+             Every smile tells a story of courage — proof that healing isn’t
+              instant, but it’s real. Heartivy is where small steps lead to
+              softer days, lighter hearts, and genuine connection.
           </p>
         </div>
       </div>
@@ -82,11 +81,13 @@ export default function HealingSection() {
             <span className="text-[64px] text-[#8BA764] font-bold leading-none">
               “
             </span>
-            <span className="text-[32px]">
+            <span className="text-[24px]">
               {" "}
-              Every smile tells a story of courage — proof that healing isn’t
-              instant, but it’s real. Heartivy is where small steps lead to
-              softer days, lighter hearts, and genuine connection.
+                Every sunrise feels like a quiet victory — proof that even after the
+            darkest nights, light always returns. Heartivy is where healing
+            grows slowly, where strength is found in softness, and where hope
+            learns to breathe again.
+            
             </span>
           </p>
         </div>

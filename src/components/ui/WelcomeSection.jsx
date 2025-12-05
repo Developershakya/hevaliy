@@ -22,7 +22,7 @@ export default function WelcomeSection() {
       <p
         className={`
     ${nunito700.className}
-    text-[20px]
+    text-md
     leading-[214%]
     tracking-[0.10em]
     text-gray-700
@@ -75,12 +75,12 @@ export default function WelcomeSection() {
         <p
           className={`
             ${nunito.className}
-            text-[12px]
+            text-md
             leading-[175%]
             tracking-[0.10em]
             text-gray-700
             text-justify
-            max-w-[520px]       /* ⭐ exact width */
+            max-w-[700px]       /* ⭐ exact width */
             md:mt-[200px]        /* ⭐ align with 2nd line */
           `}
         >
