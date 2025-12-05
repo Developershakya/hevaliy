@@ -1,6 +1,7 @@
 import Image from "next/image";
 import heroBg from "../../../public/images/john-towner-3Kv48NS4WUU-unsplash 1.png";
 import rightImg from "../../../public/images/hero-right-img.png";
+import { Cog } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -30,21 +31,24 @@ export default function Hero() {
       <div
         className="
         absolute bottom-10 left-24   text-white max-w-xs
-        bg-black/30 backdrop-blur-md p-4 rounded-xl 
-        shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+        
+        
       "
       >
-        <h3 className="font-semibold flex items-center gap-2 text-lg">
-          💫 Strength in Stillness
-        </h3>
+                <div className="flex  md:justify-start items-center gap-2 mb-2">
+                  <Cog className="w-4 h-4 md:w-6 md:h-6" />
+                  <h3 className="text-sm md:text-xl  font-semibold">Strength in Stillness</h3>
+                </div>
 
-        <p className="text-sm mt-1 leading-relaxed text-gray-100">
-          Take time for your mind — nurture confidence, balance, and resilience.
-        </p>
+                <p className="text-xs md:text-sm text-[#D5B485] leading-relaxed">
+                  Mental well-being shapes how we think, feel, and connect with others.
+                  When you take time to care for your mind, you nurture your confidence,
+                  balance, and resilience — one gentle moment at a time.
+                </p>
       </div>
 
       {/* Bottom Right Circular Card */}
-      <div className="absolute bottom-10 right-24 text-white flex items-center gap-[10px">
+      <div className="absolute bottom-10 right-24 text-[#D5B485] flex items-center gap-[10px">
         {/* Text on the LEFT side */}
         <div className="flex flex-col text-right leading-tight">
           <span className="text-sm opacity-90">Growth</span>

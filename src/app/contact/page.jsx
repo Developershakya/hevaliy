@@ -1,337 +1,167 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Menu, X, Heart, Mail, Phone, MapPin, MessageSquare, Clock, Send } from 'lucide-react';
-import Link from 'next/link';
+import Navbar from '../../components/ui/NavBar'; // Make sure this path matches your file name (e.g., Header.jsx)
+import Footer from '../../components/Footer'; // Make sure this path matches your file name (e.g., Footer.jsx)
+import { HeartPulse } from 'lucide-react'; // FIXED: Changed HeartActivity to HeartPulse
 
 export default function ContactPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    inquiryType: '',
-    message: ''
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = () => {
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', inquiryType: '', message: '' });
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white shadow-sm z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" fill="white" />
-              </div>
-              <span className="font-bold text-xl text-gray-900">Heartivy</span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-sm font-medium text-gray-700 hover:text-purple-600">Home</Link>
-              <Link href="/marketing/about" className="text-sm font-medium text-gray-700 hover:text-purple-600">About</Link>
-              <Link href="/support" className="text-sm font-medium text-gray-700 hover:text-purple-600">Get Support</Link>
-              <Link href="/community" className="text-sm font-medium text-gray-700 hover:text-purple-600">Community</Link>
-              <Link href="/contact" className="text-sm  text-purple-600 font-bold">Contact</Link>
-            </div>
+    <div className="min-h-screen bg-white font-sans text-gray-800 flex flex-col ">
+      
+      {/* 1. Import Navbar */}
+      <Navbar />
 
-            <div className="flex items-center space-x-4">
-              <a href="/login" className="hidden md:block bg-gray-200 text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-300">Login ↗</a>
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
-
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 space-y-4 pb-4">
-              <Link href="/" className="block text-gray-700 hover:text-purple-600">Home</Link>
-              <Link href="/about" className="block text-gray-700 hover:text-purple-600">About</Link>
-              <Link href="/support" className="block text-gray-700 hover:text-purple-600">Get Support</Link>
-              <Link href="/community" className="block text-gray-700 hover:text-purple-600">Community</Link>
-              <Link href="/contact" className="block text-purple-600 font-bold">Contact</Link>
-            </div>
-          )}
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-purple-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full font-semibold mb-4">Contact Us</div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Let's Get in Touch.</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Sometimes reaching out is the first step toward feeling a little lighter. We're here — listening, without judgment.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Options */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-600 text-lg mb-12">
-            If you have questions, need support, or simply want to share feedback, we're here — listening, without judgment.
-          </p>
-          <p className="text-center text-gray-600 text-lg mb-12">
-            If you prefer, you can also reach us directly at:
-          </p>
-          <div className="text-center mb-12">
-            <p className="text-2xl font-semibold text-gray-900 mb-2">support@heartivy.com</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center hover:shadow-lg transition cursor-pointer">
-              <div className="inline-block bg-white p-4 rounded-full mb-6">
-                <MessageSquare className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Support Chat</h3>
-              <p className="text-gray-700 mb-4">Get instant help from our support team during business hours.</p>
-              <button className="text-purple-600 font-semibold hover:text-purple-700">Start Chat →</button>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center hover:shadow-lg transition cursor-pointer">
-              <div className="inline-block bg-white p-4 rounded-full mb-6">
-                <Mail className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Email Support</h3>
-              <p className="text-gray-700 mb-4">Send us an email and we'll respond within 24 hours.</p>
-              <button className="text-green-600 font-semibold hover:text-green-700">Send Email →</button>
-            </div>
-
-            <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 text-center hover:shadow-lg transition cursor-pointer">
-              <div className="inline-block bg-white p-4 rounded-full mb-6">
-                <Clock className="w-8 h-8 text-pink-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Available 24/7</h3>
-              <p className="text-gray-700 mb-4">Crisis support always available when you need us most.</p>
-              <button className="text-pink-600 font-semibold hover:text-pink-700">Get Help Now →</button>
-            </div>
-          </div>
-
-          {/* In Crisis Section */}
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-white text-center mb-20">
-            <h3 className="text-3xl font-bold mb-4">In a Crisis?</h3>
-            <p className="text-lg mb-8 text-purple-100 max-w-2xl mx-auto">
-              If you're experiencing a mental health emergency, please reach out to emergency services or a crisis helpline immediately.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition">
-                Crisis Helpline
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition">
-                Emergency Services
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Send us a Message</h2>
+      {/* 2. Main Content Area */}
+      <main className="grow max-w-7xl mx-auto px-6 py-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start my-52">
           
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Enter your full name..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Enter your email address..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600"
-                />
-              </div>
+          {/* --- LEFT SIDE: Text Content --- */}
+          <div className="pt-8">
+            {/* Badge */}
+            <span className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Contact Us
+            </span>
+
+            {/* Heading */}
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Let us Get in Touch.
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+              Sometimes reaching out is the first step toward feeling a little lighter.
+            </p>
+            <p className="text-gray-500 text-lg mb-12 leading-relaxed">
+              If you have questions, need support, or simply want to share feedback, we are here — listening, without judgment.
+            </p>
+
+            <div className="mb-12">
+              <p className="text-gray-800 font-medium mb-1">If you prefer, you can also reach us directly at:</p>
+              <a href="mailto:support@heartivy.com" className="text-purple-600 hover:underline">
+                support@heartivy.com
+              </a>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="Enter your phone number..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Inquiry Type</label>
-                <select
-                  name="inquiryType"
-                  value={formData.inquiryType}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 appearance-none bg-white cursor-pointer"
-                >
-                  <option value="">Select your inquiry type...</option>
-                  <option value="support">Support Chat</option>
-                  <option value="professional">Professional Counseling</option>
-                  <option value="community">Community Circles</option>
-                  <option value="wellness">Wellness Resources</option>
-                  <option value="feedback">Feedback</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <label className="block text-sm font-semibold text-gray-900 mb-2">Message</label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Enter your main text here..."
-                rows="6"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 resize-none"
-              ></textarea>
-              <div className="text-right mt-2 text-gray-500 text-sm">0/500</div>
-            </div>
-
-            <button
-              onClick={handleSubmit}
-              className="w-full bg-purple-600 text-white py-4 rounded-lg font-semibold hover:bg-purple-700 transition flex items-center justify-center gap-2"
-            >
-              <Send size={20} />
-              Submit Form
-            </button>
-          </div>
-
-          {/* Contact Info */}
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="inline-block bg-purple-100 p-3 rounded-full mb-4">
-                <Mail className="w-6 h-6 text-purple-600" />
-              </div>
-              <h4 className="font-bold text-gray-900 mb-2">Email</h4>
-              <p className="text-gray-600">support@heartivy.com</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="inline-block bg-green-100 p-3 rounded-full mb-4">
-                <Phone className="w-6 h-6 text-green-600" />
-              </div>
-              <h4 className="font-bold text-gray-900 mb-2">Phone</h4>
-              <p className="text-gray-600">+1 (800) HEARTIVY</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 text-center">
-              <div className="inline-block bg-pink-100 p-3 rounded-full mb-4">
-                <MapPin className="w-6 h-6 text-pink-600" />
-              </div>
-              <h4 className="font-bold text-gray-900 mb-2">Address</h4>
-              <p className="text-gray-600">San Francisco, CA</p>
+            {/* Heart Icon Circle */}
+            <div className="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center text-pink-700">
+               {/* FIXED: Used HeartPulse here */}
+               <HeartPulse size={28} />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
-          
-          <div className="space-y-4">
-            {[
-              {
-                q: 'How do I join a support circle?',
-                a: 'Simply log into your account, navigate to the Community section, and browse available circles. Click "Join" on any circle that resonates with you!'
-              },
-              {
-                q: 'Is my information confidential?',
-                a: 'Absolutely! Your privacy and confidentiality are paramount. We follow strict data protection regulations and encrypt all personal information.'
-              },
-              {
-                q: 'Can I talk to a professional counselor?',
-                a: 'Yes! We have licensed professionals available for one-on-one sessions. Visit our Get Support section to schedule an appointment.'
-              },
-              {
-                q: 'What if I\'m in crisis?',
-                a: 'If you\'re experiencing a mental health emergency, please contact local emergency services or our 24/7 crisis helpline immediately.'
-              },
-              {
-                q: 'How much does it cost?',
-                a: 'Community circles and many resources are free. Professional counseling services have different pricing plans available.'
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition">
-                <h4 className="font-bold text-gray-900 mb-3 text-lg">{item.q}</h4>
-                <p className="text-gray-700">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-white" fill="white" />
+          {/* --- RIGHT SIDE: Contact Form --- */}
+          <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50">
+            <form className="space-y-6">
+              
+              {/* Row 1: Name & Email */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm font-medium text-gray-700">Full Name</label>
+                  <input 
+                    type="text" 
+                    placeholder="Enter your full name..." 
+                    className="w-full bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-200"
+                  />
                 </div>
-                <span className="font-bold text-lg">Heartivy</span>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm font-medium text-gray-700">Email Address</label>
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email address..." 
+                    className="w-full bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-200"
+                  />
+                </div>
               </div>
-              <p className="text-gray-400">Building a community where every heart matters.</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Support</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><button className="hover:text-white transition">Get Support</button></li>
-                <li><button className="hover:text-white transition">Community</button></li>
-                <li><button className="hover:text-white transition">Contact</button></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Company</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><button className="hover:text-white transition">About Us</button></li>
-                <li><button className="hover:text-white transition">Careers</button></li>
-                <li><button className="hover:text-white transition">Blog</button></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Legal</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><button className="hover:text-white transition">Privacy Policy</button></li>
-                <li><button className="hover:text-white transition">Terms of Service</button></li>
-                <li><button className="hover:text-white transition">Cookie Policy</button></li>
-              </ul>
-            </div>
+
+              {/* Row 2: Phone & Inquiry */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm font-medium text-gray-700">Phone Number</label>
+                  <input 
+                    type="tel" 
+                    placeholder="Enter your phone number..." 
+                    className="w-full bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-200"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-sm font-medium text-gray-700">Inquiry Type</label>
+                  <div className="relative">
+                    <select className="w-full bg-gray-100 rounded-lg px-4 py-3 text-sm text-gray-500 appearance-none focus:outline-none focus:ring-2 focus:ring-purple-200 cursor-pointer">
+                        <option>Select your inquiry type..</option>
+                        <option>Support</option>
+                        <option>Feedback</option>
+                        <option>Partnership</option>
+                    </select>
+                    {/* Custom Arrow for select */}
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Checkboxes Section */}
+              <div className="py-2">
+                <label className="text-sm font-medium text-gray-700 block mb-3">What can we help you with?</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-4">
+                    <CheckboxItem label="Support Chat" />
+                    <CheckboxItem label="Professional Counseling" />
+                    <CheckboxItem label="Community Circles" />
+                    <CheckboxItem label="Wellness Resources" />
+                    <CheckboxItem label="Crisis Support" />
+                    <CheckboxItem label="Feedback" />
+                    <CheckboxItem label="General Inquiry" />
+                    <CheckboxItem label="Other" />
+                </div>
+              </div>
+
+              {/* Message Textarea */}
+              <div className="flex flex-col gap-1.5">
+                  <label className="text-sm font-medium text-gray-700">Message</label>
+                  <textarea 
+                    rows={4} 
+                    placeholder="Enter your main text here..." 
+                    className="w-full bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-200 resize-none"
+                  ></textarea>
+                  <div className="text-right text-xs text-gray-400">0/300</div>
+              </div>
+
+              {/* Submit Button */}
+              <button className="w-full bg-[#8e7699] hover:bg-[#7a6385] text-white font-medium py-3 rounded-lg transition shadow-sm flex justify-center items-center gap-2">
+                Submit Form 
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+
+            </form>
           </div>
-          <div className="border-t border-gray-800 pt-8">
-            <p className="text-gray-400 text-center">© 2025 Heartivy. All rights reserved.</p>
-          </div>
+
         </div>
-      </footer>
+      </main>
+
+      {/* 3. Import Footer */}
+      <Footer />
     </div>
   );
+}
+
+// Helper Component for Checkboxes
+function CheckboxItem({ label }) {
+    return (
+        <label className="flex items-center gap-2 cursor-pointer group">
+            <input 
+                type="checkbox" 
+                className="peer sr-only" 
+            />
+            {/* Custom Checkbox Style */}
+            <div className="w-5 h-5 rounded border border-gray-300 peer-checked:bg-purple-600 peer-checked:border-purple-600 flex items-center justify-center transition">
+                <svg className="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <span className="text-sm text-gray-600 group-hover:text-gray-900">{label}</span>
+        </label>
+    )
 }

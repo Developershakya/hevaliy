@@ -1,4 +1,9 @@
-import { Nunito_Sans } from "next/font/google";
+import { Yellowtail, Nunito_Sans } from "next/font/google";
+
+const yellowtail = Yellowtail({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 const nunito700 = Nunito_Sans({
   weight: "700",
@@ -21,68 +26,61 @@ export default function WelcomeSection() {
       {/* Top Small Text */}
       <p
         className={`
-    ${nunito700.className}
-    text-[20px]
-    leading-[214%]
-    tracking-[0.10em]
-    text-gray-700
-    mb-10
-    ml-20
-  `}
+          ${nunito700.className}
+          text-md
+          leading-[214%]
+          tracking-[0.10em]
+          text-gray-700
+          mb-10
+          ml-20
+        `}
       >
         WELCOME
       </p>
 
       {/* Layout */}
-      <div
-        className="
-          max-w-[1400px] mx-auto 
-          flex flex-row md:flex-row 
-          
-        "
-      >
+      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-col">
         {/* LEFT — Staggered Heading */}
-        <div className="flex flex-col">
-          {/* First line */}
+        <div className="flex flex-col ">
+          {/* First Line */}
           <span
-            className="
-              font-[Yellowtail] font-normal
-              text-[96px] md:text-[60px]
-              leading-[150%]
-              tracking-[0.10em]
-              text-gray-900
-            "
+            className={`
+      ${yellowtail.className}
+      font-normal
+      text-[96px]
+      leading-[120%]   /* 🔥 Tight line height */
+      text-gray-900
+    `}
           >
             Where Your Heart
           </span>
 
-          {/* Second line — shifted 80px to the right */}
           <span
-            className="
-              font-[Yellowtail] font-normal
-              text-[96px] md:text-[60px]
-              leading-[150%]
-              tracking-[0.10em]
-              text-gray-900
-              md:ml-[220px]   /* ⭐ EXACT stagger spacing */
-            "
+            className={`
+      ${yellowtail.className}
+      font-normal
+      text-[96px]
+      leading-[160%]   
+      text-gray-900
+      ml-[220px]     
+    `}
           >
             Can Finally Rest
           </span>
         </div>
-
         {/* RIGHT — Paragraph */}
         <p
           className={`
-            ${nunito.className}
-            text-[12px]
-            leading-[175%]
-            tracking-[0.10em]
-            text-gray-700
-            text-justify
-            max-w-[520px]       /* ⭐ exact width */
-            md:mt-[200px]        /* ⭐ align with 2nd line */
-          `}
+    ${nunito.className}
+    text-[20px]
+    font-normal
+    text-gray-700
+    leading-relaxed
+    text-justify
+    max-w-[600px]
+    mt-[10px]
+    ml-[700px]
+  `}
         >
           Heartivy is more than a platform — it’s a pause. A moment between the
           noise and the stillness where you can finally breathe, feel, and heal

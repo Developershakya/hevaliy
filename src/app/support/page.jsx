@@ -1,258 +1,191 @@
-
-'use client';
-
-import React, { useState } from 'react';
-import { Menu, X, Heart, MessageCircle, Book, Headphones, Play, AlertCircle, ChevronDown, Search } from 'lucide-react';
+import Navbar from '../../components/ui/NavBar'; // Assuming you named it Navbar.jsx
+import Footer from '../../components/Footer'; // Assuming you named it Footer.jsx
+import { Shield, User, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
-export default function SupportPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedFaq, setExpandedFaq] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+// --- Helper Components ---
 
-  const helpTopics = [
-    {
-      title: 'Getting Started',
-      description: 'Welcome to Heartivy! This guide will help you understand the platform and make the most of the emotional support tools we built for you.',
-      icon: '🚀'
-    },
-    {
-      title: 'Account Setup & Management',
-      description: 'Learn how to create your profile, manage preferences, and customize your emotional experience on Heartivy.',
-      icon: '⚙️'
-    },
-    {
-      title: 'Using Heartivy',
-      description: 'Master navigating the platform, joining support circles, starting conversations, and accessing wellness resources.',
-      icon: '💜'
-    },
-    {
-      title: 'Billing & Subscriptions',
-      description: 'Information about premium features, payment methods, and subscription management.',
-      icon: '💳'
-    },
-    {
-      title: 'Safety & Support',
-      description: 'Important safety guidelines to ensure you have the best and most secure experience on Heartivy.',
-      icon: '🛡️'
-    },
-    {
-      title: 'Trust & Protection',
-      description: 'Your privacy and safety are our top priorities. Learn how we protect your information and support.',
-      icon: '🔒'
-    }
-  ];
-
-  const resources = [
-    {
-      title: 'Crisis Support',
-      description: 'Immediate assistance if you\'re in emotional distress',
-      link: '#'
-    },
-    {
-      title: 'Self-Help Tools',
-      description: 'Guided exercises and resources for personal wellness',
-      link: '#'
-    },
-    {
-      title: 'Articles & Guides',
-      description: 'Expert-written content on mental health topics',
-      link: '#'
-    },
-    {
-      title: 'Meditation & Breathing',
-      description: 'Audio guides for mindfulness and relaxation',
-      link: '#'
-    }
-  ];
-
-  const faqs = [
-    {
-      q: 'Creating an Account',
-      a: 'Click on the "Sign up" button, enter your email, set a password, and complete your profile. You can also sign up anonymously if you prefer.'
-    },
-    {
-      q: 'Onboarding Overview',
-      a: 'Once you join, we\'ll walk you through a short onboarding flow where you can choose whether you want to talk to someone, join a community circle, or explore self-help resources.'
-    },
-    {
-      q: 'Navigating the Platform',
-      a: 'Use the sidebar or main navigation bar to access Support Chats, Journals, Community, and Resources. The Home tab shows your mood tracker, daily affirmations, and quick links.'
-    },
-    {
-      q: 'Find Steps for New Users',
-      a: 'Try adding your first journal entry — a safe space just for you. Join a beginner-friendly community circle like "Calm Corner." Explore wellness tools such as breathing exercises or guided reflections.'
-    },
-    {
-      q: 'Need More Help?',
-      a: 'Visit Support — talk to us. Or email support@heartivy.com. You\'re not alone in this — reach out anytime.'
-    }
-  ];
-
-  const toggleFaq = (idx) => {
-    setExpandedFaq(expandedFaq === idx ? null : idx);
-  };
-
+// 1. Feature Card Component 
+function FeatureCard({ icon: Icon, title, description }) {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white shadow-sm z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" fill="white" />
-              </div>
-              <span className="font-bold text-xl text-gray-900">Heartivy</span>
-            </div>
+    <div className="flex flex-col items-center text-center p-4">
+      {/* Icon Placeholder Circle */}
+      <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 text-gray-500">
+        {/* <Icon size={32} /> */}
+      </div>
+      <h4 className="font-semibold text-sm mb-1">{title}</h4>
+      <p className="text-xs text-gray-500 max-w-xs">{description}</p>
+    </div>
+  );
+}
+
+// 2. Left Navigation Sidebar Component
+function HelpCentreNav() {
+    // Data structured exactly as per the image sidebar
+    const navItems = [
+        { title: 'Get Started', links: ['Getting set up', 'How to get support'] },
+        { title: 'Account Setup & Management', links: ['Profile', 'Settings'] },
+        { title: 'Billing & Subscriptions', links: ['Plans', 'Payment'] },
+        { title: 'Safety & Security', links: ['Safety', 'Security'] },
+        { title: 'Trust & Protection', links: ['Trust', 'Protection'] },
+    ];
+
+    return (
+        // Sticky class added for proper sidebar behavior
+        <div className="w-64 shrink-0 pt-8 border-r border-gray-100 pr-8 sticky top-0 self-start"> 
+            <h3 className="font-bold text-sm uppercase text-gray-800 mb-4 tracking-wider">Help Centre</h3>
+            <p className="text-sm text-gray-600 mb-6">Find answers and get support</p>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="/" className="text-sm font-medium text-gray-700 hover:text-purple-600">Home</a>
-              <a href="/about" className="text-sm font-medium text-gray-700 hover:text-purple-600">About</a>
-              <a href="/support" className="text-sm font-medium text-purple-600 font-bold">Get Support</a>
-              <a href="/community" className="text-sm font-medium text-gray-700 hover:text-purple-600">Community</a>
-              <a href="/contact" className="text-sm font-medium text-gray-700 hover:text-purple-600">Contact</a>
+            <ul className="space-y-9">
+                {navItems.map((section, index) => (
+                    <li key={index}>
+                        <div className="flex items-center justify-between text-sm text-black font-semibold mb-2 cursor-pointer">
+                            {section.title}
+                            <ChevronRight size={16} className="text-gray-400" />
+                        </div>
+                        {/* Sub-links */}
+                        {/* <ul className='space-y-1'>
+                            {section.links.map((link, linkIndex) => (
+                                <Link key={linkIndex} href={`#${link.toLowerCase().replace(/\s/g, '-')}`} className="block text-sm text-gray-600 hover:text-purple-600 py-1 pl-2">
+                                    {link}
+                                </Link>
+                            ))}
+                        </ul> */}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+// --- Main Page Component (Wrapping the content) ---
+export default function SupportPage() {
+  return (
+    <div className="bg-white min-h-screen font-sans text-gray-800 flex flex-col ">
+      
+      {/* 1. Import Header/Navbar */}
+      <Navbar /> 
+
+      <main className="grow">
+        <div className="max-w-7xl mx-auto px-6 py-12 ">
+            
+            {/* --- 1. Top Heading Section --- */}
+            <div className="text-center mb-62 mt-62 max-w-3xl mx-auto">
+                <h1 className="text-4xl font-bold mb-4">
+                    Help Centre
+                </h1>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                    We know that reaching out for support or navigating a new platform can feel overwhelming. That is why we have created this Help Centre to answer your most common questions and give you reassurance every step of the way.
+                </p>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <a href="/login" className="hidden md:block bg-gray-200 text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-300">Login ↗</a>
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+            {/* --- 2. Feature Cards --- */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-52 max-w-5xl mx-auto">
+                <FeatureCard 
+                    icon={Shield} 
+                    title="" 
+                    description=""
+                />
+                <FeatureCard 
+                    icon={User} 
+                    title="Managing My Account" 
+                    description="Need help updating credentials, subscriptions, or contact details? We'll help you manage your member experience."
+                />
+                <FeatureCard 
+                    icon={ChevronRight} 
+                    title="Platform Guide" 
+                    description="Detailed walkthroughs of features, tools, and best practices to help you get the most out of our resources."
+                />
             </div>
-          </div>
 
-          {mobileMenuOpen && (
-            <div className="md:hidden mt-4 space-y-4 pb-4">
-              <a href="/" className="block text-gray-700 hover:text-purple-600">Home</a>
-              <a href="/about" className="block text-gray-700 hover:text-purple-600">About</a>
-              <a href="/support" className="block text-purple-600 font-bold">Get Support</a>
-              <a href="/community" className="block text-gray-700 hover:text-purple-600">Community</a>
-              <a href="/contact" className="block text-gray-700 hover:text-purple-600">Contact</a>
-            </div>
-          )}
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-purple-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Help Centre</h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We know that reaching out for support or navigating a new platform can feel overwhelming. That's why we created this Help Centre — a gentle space where you can find answers, guidance, and reassurance every step of the way.
-            </p>
-          </div>
-
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto">
-            <div className="flex items-center bg-white rounded-lg shadow-lg px-6 py-4 border border-gray-200">
-              <Search className="w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search for help articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="ml-4 outline-none w-full text-gray-700"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Links */}
-      <section className="py-8 bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-4">
-            {['Getting Started', 'Account Setup', 'Billing', 'Safety', 'Privacy'].map((topic) => (
-              <button
-                key={topic}
-                className="px-6 py-2 bg-white border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition font-semibold text-sm"
-              >
-                {topic}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Help Topics Grid */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <h2 className="text-2xl font-bold text-gray-900 mb-12">Help Centre</h2>
-          <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-            Find answers and get support across different topics related to Heartivy.
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {helpTopics.map((topic, idx) => (
-              <button
-                key={idx}
-                className="bg-gray-50 hover:bg-gray-100 transition rounded-xl p-8 text-left"
-              >
-                <div className="text-4xl mb-4">{topic.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{topic.title}</h3>
-                <p className="text-gray-700">{topic.description}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                  <Image src={""} width={100} alt="logo" className="w-5 h-5" fill="white" />
+            {/* --- 3. Main Content Columns (Sidebar + Guide) --- */}
+            <div className="flex flex-col lg:flex-row mb-32">
+                
+                {/* Left Sidebar (Desktop Only) */}
+                <div className="hidden lg:block">
+                    <HelpCentreNav />
                 </div>
-                <span className="font-bold text-lg">Heartivy</span>
-              </div>
-              <p className="text-gray-400">Building a community where every heart matters.</p>
+
+                {/* Right Content - Guide */}
+                <div className="grow pt-8 max-w-5xl  bg-gray-100 p-8 border border-gray-200 border-l-3 border-t-0 border-b-0 border-r-0">
+                    <h2 className="text-2xl font-bold mb-6 text-gray-900 border-b border-gray-100 pb-3">Getting Started</h2>
+                    
+                    <p className="text-sm text-gray-600 leading-relaxed mb-6 bg-[#F3F8FD] border-blue-200 border p-4 rounded-lg">
+                        Welcome to Heartivy! We are really glad you are here. This guide will help you understand the platform and make the most of the emotional support tools we have built for you.
+                    </p>
+
+                    {/* Guide Steps */}
+                    <ol className="space-y-6 list-none pl-0">
+                        {/* Step 1 */}
+                        <li>
+                            <h3 className="text-lg font-bold mb-2">1. Signing Up</h3>
+                            <ul className="text-sm text-gray-600 list-disc ml-5 space-y-1">
+                                <li>Click the <strong>Sign Up</strong> or <strong>Create Account</strong> button.</li>
+                                <li>You can join with an email or continue anonymously.</li>
+                                <li>All information remains private at the highest security level.</li>
+                                <li>Review our emotional safety guidelines to continue.</li>
+                            </ul>
+                        </li>
+                        
+                        {/* Step 2 */}
+                        <li>
+                            <h3 className="text-lg font-bold mb-2">2. Onboarding Checklist</h3>
+                            <p className="text-sm text-gray-600 mb-2">
+                                Once you join, we will walk you through a short onboarding flow. You can quickly set goals, such as:
+                            </p>
+                            <ul className="text-sm text-gray-600 list-disc ml-5 space-y-1">
+                                <li>To talk to someone</li>
+                                <li>To learn coping skills</li>
+                                <li>To join community circles</li>
+                                <li>To track my daily mood</li>
+                            </ul>
+                            <p className="text-sm text-gray-600 mt-2">
+                                Customize your notification and privacy settings at any time.
+                            </p>
+                        </li>
+
+                        {/* Step 3 */}
+                        <li>
+                            <h3 className="text-lg font-bold mb-2">3. Navigating the Platform</h3>
+                            <ul className="text-sm text-gray-600 list-disc ml-5 space-y-1">
+                                <li>The <strong>Home</strong> shows the navigation bar to access <strong>Support Chats</strong>, <strong>Journal Community</strong>, or <strong>Resources</strong>.</li>
+                                <li>The <strong>Home</strong> tab shows your mood tracker, daily affirmations, and quick tools.</li>
+                                <li>The <strong>Support</strong> tab lets you book professional counseling or find a therapist.</li>
+                            </ul>
+                        </li>
+
+                        {/* Step 4 */}
+                        <li>
+                            <h3 className="text-lg font-bold mb-2">4. First Steps for New Users</h3>
+                            <ul className="text-sm text-gray-600 list-disc ml-5 space-y-1">
+                                <li>Try the <strong>Quick Comfort Journey</strong> — a safe space just for you.</li>
+                                <li>Join a beginner-friendly community circle like <strong>Calm Corner</strong> or <strong>Letting Go</strong>.</li>
+                                <li>Spend five minutes with simple breathing exercises or guided reflections.</li>
+                            </ul>
+                        </li>
+
+                        {/* Step 5 */}
+                        <li>
+                            <h3 className="text-lg font-bold mb-2">5. Need More Help?</h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                                If you ever feel stuck or unsure, you are not alone — reach out anytime.
+                            </p>
+                            <p className="text-sm text-gray-600">
+                                Visit <strong>Support</strong>  <strong>Talk to Us</strong>
+                            </p>
+                            <p className="text-sm text-gray-600 mt-1">
+                                Or email us at: <a href="mailto:support@heartivy.com" className="text-purple-600 hover:underline">support@heartivy.com</a>
+                            </p>
+                        </li>
+                    </ol>
+                </div>
             </div>
 
-            <div>
-              <h4 className="font-bold text-lg mb-6">Support</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><button className="hover:text-white transition">Crisis Helpline</button></li>
-                <li><button className="hover:text-white transition">Chat Support</button></li>
-                <li><button className="hover:text-white transition">Find a Therapist</button></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Resources</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><button className="hover:text-white transition">Articles</button></li>
-                <li><button className="hover:text-white transition">Self-Help Tools</button></li>
-                <li><button className="hover:text-white transition">Blog</button></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-6">Company</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><button className="hover:text-white transition">About</button></li>
-                <li><button className="hover:text-white transition">Contact</button></li>
-                <li><button className="hover:text-white transition">Privacy</button></li>
-              </ul>
-            </div>
-
-          </div>
-          <div className="border-t border-gray-800 pt-8 md:flex justify-between block space-y-4">
-            <p className="text-gray-400 text-center">© 2025 Heartivy. All rights reserved.</p>
-            <div className="flex justify-around gap-10">
-              <Link href={"#"} className="">Privacy Policy</Link>
-              <Link href={"#"}>Terms of Service</Link>
-              <Link href={"#"}>Cookie Policy</Link>
-            </div>
-          </div>
         </div>
-      </footer>
+      </main>
+      
+      {/* 2. Import Footer */}
+      <Footer />
     </div>
   );
 }

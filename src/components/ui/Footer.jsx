@@ -14,12 +14,12 @@ export default function Footer() {
 
         {/* Links */}
         <div className="space-y-2">
-          <p className="font-semibold text-gray-800">Quick Links</p>
+          <p className=" text-gray-800">Quick Links</p>
 
           {["About", "Support", "Community"].map((link) => (
             <p
               key={link}
-              className="text-gray-600 text-sm hover:text-black cursor-pointer"
+              className="text-gray-600 text-xs hover:text-black cursor-pointer"
             >
               {link}
             </p>
