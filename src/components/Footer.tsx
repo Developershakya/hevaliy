@@ -3,7 +3,8 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 pt-16 pb-8 mt-auto">
+    <footer className=" border-t border-gray-100 pt-16 pb-8 mt-auto "
+     style={{ fontFamily: "Arial, sans-serif" }}>
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-32 mb-12">
         
         {/* Left Column: Brand & Social */}

@@ -6,27 +6,30 @@ import Footer from "@/components/Footer";
 import HealingSection from "@/components/ui/HealingSection";
 import SupportSection from "@/components/ui/SupportSection";
 import SubscribeSection from "@/components/ui/Subscription";
+import Image from "next/image";
+
 export default function HomePage() {
   return (
-<div 
-  className="min-h-screen  bg-cover bg-center bg-no-repeat" 
-  // style={{ backgroundImage: "url('/images/background.png')" }}
->
-      <div
-      className="fixed inset-0 bg-white -z-10 bg-contain bg-center bg-no-repeat  mix-blend-screen"
+    <div
+      className="min-h-screen relative bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/images/Topographic 5.png')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "contain", // or "auto"
+        backgroundPosition: "center",
+        mixBlendMode: "screen",
+        backgroundColor: "#fff",
       }}
-    ></div>
-  <NavBar />
-  <Hero />
-  <WelcomeSection />
-  <HealingSection />
-  <SupportSection />
-  <Testimonial />
-  <SubscribeSection />
-  <Footer />
-</div>
+    >
+      <NavBar />
+      <Hero />
+      <WelcomeSection />
+      <HealingSection />
+      <SupportSection />
+      <Testimonial />
+      <SubscribeSection />
+      <Footer />
+    </div>
 
   );
 }

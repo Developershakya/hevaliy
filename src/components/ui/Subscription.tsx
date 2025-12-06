@@ -1,17 +1,28 @@
 import Image from "next/image";
+import { Nunito_Sans, Poppins } from "next/font/google";
+
+const nunito = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"], // light-medium-regular-bold
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export default function SubscribeSection() {
   return (
-    <section className="px-4 md:px-10 max-w-5xl mx-auto mb-32">
+    <section className={`px-4 md:px-10 max-w-5xl mx-auto mb-40 ${poppins.className}`} >
       {/* Card */}
-      <div className="relative max-w-6xl w-full rounded-3xl bg-[#EDEDED] overflow-hidden border border-[#e4e4e4]">
+      <div className="relative max-w-6xl w-full rounded-4xl bg-[#EDEDED] overflow-hidden ">
 
         {/* Background Image */}
         <Image
           src="/images/Lines_newsletter_bg.svg"
           alt="Background"
           fill
-          className="object-cover mix-blend-multiply object-top translate-y-8 md:translate-y-11"
+          className="object-cover mix-blend-multiply object-top -translate-x-8 translate-y-8 md:translate-y-4"
         />
 
         <div className="relative z-[2] text-center px-6 md:px-20 py-10 md:py-16">
@@ -22,7 +33,7 @@ export default function SubscribeSection() {
           </p>
 
           {/* Main Heading */}
-          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#625A60] leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-semibold text-[#625A60] leading-tight">
             Subscribe to Find Calm, Hope, and <br className="hidden md:block" />
             Gentle Guidance from Heartivy
           </h2>
@@ -34,13 +45,13 @@ export default function SubscribeSection() {
           </p>
 
           {/* Input + Button */}
-          <div className="mt-10 bg-white flex flex-col sm:flex-row items-center justify-between gap-3 mx-auto w-full max-w-xl px-4 py-2 rounded-full">
+          <div className="mt-10 bg-white flex flex-col sm:flex-row items-center justify-between gap-3 mx-auto w-full max-w-xl px-2 py-1.5 rounded-full">
             <input
               type="email"
               placeholder="Enter your email to begin your gentle journey"
-              className="w-full sm:flex-1 px-4 py-2 rounded-full text-sm outline-none"
+              className="w-full sm:flex-1 px-4 py-2 rounded-full text-sm font-medium outline-none"
             />
-            <button className="bg-[#8F7A9C] text-white px-8 py-3 rounded-full text-[14px] hover:opacity-90 transition">
+            <button className="bg-[#8F7A9C] text-white px-5 py-3.5 rounded-full text-[14px]  hover:opacity-90 transition">
               Join the Circle
             </button>
           </div>

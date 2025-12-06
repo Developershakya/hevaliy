@@ -20,10 +20,10 @@ const switzer = localFont({
 });
 
 // LOAD NUNITO
-const nunito = Nunito_Sans({
-  weight: ["400", "600", "700"],
-  subsets: ["latin"],
-});
+// const nunito = Nunito_Sans({
+//   weight: ["400", "600", "700"],
+//   subsets: ["latin"],
+// });
 
 // ---- DATA ---- //
 const slides = [
@@ -82,9 +82,9 @@ export default function TestimonialSection() {
 
   return (
     <section
-      className="w-full py-24 px-8 md:px-16 bg-white
-            bg-[url('/images/Topographic 5.png')] bg-cover bg-center
-"
+      className={`${switzer.className} w-full py-4 px-8 md:px-14 mb-22
+          
+`}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* LEFT STATIC SECTION  */}
@@ -108,7 +108,7 @@ export default function TestimonialSection() {
           </h2>
 
           <p
-            className={`${nunito.className} text-[14px] text-gray-600 leading-[175%] mt-4 max-w-[360px]`}
+            className={`text-[14px] text-gray-600 leading-[175%] mt-4 max-w-[360px]`}
           >
             We are very happy if you are satisfied with our service. Let’s read
             pure reviews from customers who bought our products.
@@ -117,7 +117,7 @@ export default function TestimonialSection() {
           {/* PAGE NUMBER + BUTTONS */}
           <div className="flex flex-col gap-2 mt-12">
             <div>
-              <span className="text-3xl font-bold text-gray-900">
+              <span className="text-5xl font-bold text-gray-900">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="text-gray-500 text-md">
@@ -154,7 +154,7 @@ export default function TestimonialSection() {
         </div>
 
         {/* RIGHT SIDE — unchanged */}
-        <section className="w-full py-24 px-8 md:px-20 bg-white">
+        <section className="w-full py-24 px-8 md:px-20 ">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -177,24 +177,24 @@ export default function TestimonialSection() {
                 </p>
 
                 <p
-                  className={`${nunito.className} text-[14px] text-gray-700 leading-[175%] mt-2`}
+                  className={` text-[14px] text-gray-700 leading-[175%] mt-2`}
                 >
                   {slides[index].big.content}
                 </p>
 
-                <div className="flex items-center gap-3 mt-6">
+                <div className="flex items-center gap-1 mt-6">
                   <Image
                     src={slides[index].big.img}
                     alt="user"
-                    width={36}
-                    height={36}
+                    width={25}
+                    height={25}
                     className="rounded-full"
                   />
-                  <div>
-                    <p className="text-[14px] font-bold text-gray-900">
+                  <div className="leading-3">
+                    <p className="text-[12px]  text-gray-900">
                       {slides[index].big.name}
                     </p>
-                    <p className="text-[12px] text-gray-500">
+                    <p className="text-[10px] text-gray-500">
                       {slides[index].big.loc}
                     </p>
                   </div>
@@ -215,24 +215,24 @@ export default function TestimonialSection() {
                   </p>
 
                   <p
-                    className={`${nunito.className} text-[14px] text-gray-700 leading-[175%] mt-2`}
+                    className={` text-[14px] text-gray-700 leading-[175%] mt-2`}
                   >
                     {slides[index].small1.content}
                   </p>
 
-                  <div className="flex items-center gap-3 mt-4">
+                  <div className="flex items-end justify-end gap-1 mt-4">
                     <Image
                       src={slides[index].small1.img}
                       alt="user"
-                      width={36}
-                      height={36}
+                      width={25}
+                      height={25}
                       className="rounded-full"
                     />
-                    <div>
-                      <p className="text-[14px] font-bold text-gray-900">
+                    <div className="leading-3">
+                      <p className="text-[12px]  text-gray-900">
                         {slides[index].small1.name}
                       </p>
-                      <p className="text-[12px] text-gray-500">
+                      <p className="text-[10px] text-gray-500">
                         {slides[index].small1.loc}
                       </p>
                     </div>
@@ -251,24 +251,24 @@ export default function TestimonialSection() {
                   </p>
 
                   <p
-                    className={`${nunito.className} text-[14px] text-gray-700 leading-[175%] mt-2`}
+                    className={` text-[14px] text-gray-700 leading-[175%] mt-2`}
                   >
                     {slides[index].small2.content}
                   </p>
 
-                  <div className="flex items-center gap-3 mt-4">
+                  <div className={`${switzer.className} flex justify-end items-end gap-1 mt-4`}>
                     <Image
                       src={slides[index].small2.img}
                       alt="user"
-                      width={36}
-                      height={36}
+                      width={25}
+                      height={25}
                       className="rounded-full"
                     />
-                    <div>
-                      <p className="text-[14px] font-bold text-gray-900">
+                    <div className="leading-3">
+                      <p className="text-[12px]   text-gray-900">
                         {slides[index].small2.name}
                       </p>
-                      <p className="text-[12px] text-gray-500">
+                      <p className="text-[10px] text-gray-500">
                         {slides[index].small2.loc}
                       </p>
                     </div>

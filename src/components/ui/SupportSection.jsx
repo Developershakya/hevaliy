@@ -10,14 +10,15 @@ const nunito = Nunito_Sans({
 
 export default function SupportSection() {
   return (
-    <section className="w-full py-24 px-8 md:px-20 bg-white">
+    <section className="w-full py-24 px-8 md:px-20  "
+    >
       {/* MAIN HEADER */}
       <div className="text-center mb-16">
         <h2
           className={`
             ${nunito.className}
             text-[24px] md:text-[24px]
-            font-bold text-gray-800 
+            font-bold 
           `}
         >
           Find Your Way Back to Feeling Seen.
@@ -26,7 +27,7 @@ export default function SupportSection() {
         <p
           className={`
             ${nunito.className}
-            text-[13px] leading-[175%] text-gray-600 tracking-[0.02em] mt-2
+            text-[12.5px]  text-gray-600 font-semibold mt-1.5
           `}
         >
           Three ways we support your emotional wellbeing
@@ -55,7 +56,7 @@ export default function SupportSection() {
               <h3
                 className={`
                   ${nunito.className}
-                  text-[27px] font-bold text-gray-800 tracking-[0.02em]
+                  text-[23px] font-bold  
                 `}
               >
                 Personal Progress Tracking
@@ -64,7 +65,7 @@ export default function SupportSection() {
               <p
                 className={`
                   ${nunito.className}
-                  text-[16px] leading-[175%] text-gray-600 tracking-[0.02em] mt-1
+                  text-[16px]  text-gray-600 font-bold tracking-tighter leading-4 mt-1
                 `}
               >
                 Monitor your emotional well-being with private journaling and
@@ -93,7 +94,7 @@ export default function SupportSection() {
               <h3
                 className={`
                   ${nunito.className}
-                  text-[27px] font-bold text-gray-800 tracking-[0.02em]
+                  text-[23px] font-bold 
                 `}
               >
                 Guided Meditation & Audio
@@ -102,7 +103,7 @@ export default function SupportSection() {
               <p
                 className={`
                   ${nunito.className}
-                  text-[16px] leading-[175%] text-gray-600 tracking-[0.02em] mt-1
+              text-[16px]  text-gray-600 font-bold tracking-tighter leading-4 mt-1
                 `}
               >
                 Access a curated library of audio guides for mindfulness, stress
@@ -128,7 +129,7 @@ export default function SupportSection() {
         {/* RIGHT COLUMN */}
         <div className="flex flex-col gap-12">
           {/* 3 — Community Group Chat */}
-          <div className="flex-row gap-3 items-start">
+          <div className="flex flex-col gap-3 items-end text-right justify-end ">
             <svg
               width="31"
               height="25"
@@ -145,7 +146,7 @@ export default function SupportSection() {
               <h3
                 className={`
                   ${nunito.className}
-                  text-[27px] font-bold text-left block text-gray-800 tracking-[0.02em]
+                  text-[23px] font-bold  
                 `}
               >
                 Community Group Chat
@@ -154,7 +155,7 @@ export default function SupportSection() {
               <p
                 className={`
                   ${nunito.className}
-                  text-[16px] leading-[175%] text-left text-gray-600 tracking-[0.02em] mt-1
+              vtext-[16px]  text-gray-600 font-bold tracking-tighter leading-4 mt-1
                 `}
               >
                 Find true connection in our specialized, moderated support
@@ -164,7 +165,7 @@ export default function SupportSection() {
           </div>
 
           {/* 4 — Trained Peer Listeners */}
-          <div className="flex-row gap-3 items-start">
+          <div className="flex flex-col gap-3 items-end text-right justify-end ">
             <svg
               width="28"
               height="28"
@@ -182,7 +183,7 @@ export default function SupportSection() {
               <h3
                 className={`
                   ${nunito.className}
-                  text-[27px] font-bold text-gray-800 tracking-[0.02em]
+                  text-[23px] font-bold
                 `}
               >
                 Trained Peer Listeners
@@ -191,7 +192,7 @@ export default function SupportSection() {
               <p
                 className={`
                   ${nunito.className}
-                  text-[16px] leading-[175%] text-gray-600 tracking-[0.02em] mt-1
+                text-[16px]  text-gray-600 font-bold tracking-tighter leading-4 mt-1
                 `}
               >
                 Connect one-on-one with a compassionate listener dedicated to
