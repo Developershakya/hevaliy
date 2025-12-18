@@ -13,7 +13,15 @@ const switzer = localFont({
 
 export default function AboutPage() {
   return (
-    <div className={`${switzer.className} min-h-screen bg-white font-sans text-gray-800 pt-24`}>
+    <div className={`${switzer.className} min-h-screen font-sans text-gray-800 pt-24`}
+          style={{
+        backgroundImage: "url('/images/Topographic 5.png')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "contain", // or "auto"
+        backgroundPosition: "center",
+        mixBlendMode: "screen",
+        backgroundColor: "#fff",
+      }}>
       {/* --- Navbar --- */}
       <Header></Header>
 

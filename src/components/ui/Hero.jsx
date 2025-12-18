@@ -16,9 +16,9 @@ const poppins = Poppins({
 
 export default function Hero() {
   return (
-    <section className={` ${nunito.className} relative w-full lg:h-screen  sm:h-[134vh] md:h-[105vh] h-[134vh]  overflow-hidden`}>
+    <section className={` ${nunito.className} relative w-full  h-[134vh] md:h-[105vh]   overflow-hidden`}>
       {/* Background Image */}
-      <Image src={heroBg} alt="hero" fill className="object-cover" />
+      <Image src={heroBg} alt="hero" fill className="md:object-conatin object-cover" />
 
       {/* Main Center Content */}
       <div className="absolute md:inset-0 top-147 left-0   flex flex-col md:items-center md:justify-center md:text-center  px-6">
